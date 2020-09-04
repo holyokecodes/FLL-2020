@@ -23,6 +23,7 @@ right_motor = Motor(Port.C)
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 
 # Calibrate your drive base.
+# You can also just measure everything
 
 # This should drive 100 mm straight forward.
 # If it doesn't go far enough, decrease your wheel_diameter.
