@@ -14,7 +14,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 # Create your objects here.
 ev3 = EV3Brick()
-motorA = Motor(Port.A)
+#motorA = Motor(Port.A)
 
 left_motor = Motor(Port.B)
 right_motor = Motor(Port.C)
@@ -44,7 +44,7 @@ robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 # robot.stop()
 ev3.speaker.beep()
 ev3.speaker.play_file(SoundFile.HELLO)
-ev3.speaker.say("Muaa Ha Ha Haaaaaaa")
-ev3.speaker.play_notes(['C4/4', 'G4/4'])
+ev3.speaker.say("Logic error, error error error error error error error error error error errorrr Non halting program detected, shutting down")
+ev3.speaker.play_notes(['C4/4', 'F3/4', 'F2/4'])
 ev3.screen.draw_text(50, 60, "Hello!")
 wait(1000)
