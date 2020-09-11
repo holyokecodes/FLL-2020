@@ -7,6 +7,8 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
+from library import FuctionLibrary
+
 
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
 # Click "Open user guide" on the EV3 extension tab for more information.
@@ -21,6 +23,8 @@ right_motor = Motor(Port.C)
 
 # Initialize the drive base.
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
+
+library = FuctionLibrary(robot, ev3)
 
 # Calibrate your drive base.
 # You can also just measure everything
@@ -44,7 +48,10 @@ robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 # robot.stop()
 ev3.speaker.beep()
 ev3.speaker.play_file(SoundFile.HELLO)
-ev3.speaker.say("Logic error, error error error error error error error error error error errorrr Non halting program detected, shutting down")
-ev3.speaker.play_notes(['C4/4', 'F3/4', 'F2/4'])
+#ev3.speaker.say("Logic error, error error error error error error error error error error errorrr Non halting program detected, shutting down")
+#ev3.speaker.play_notes(['C4/4', 'F3/4', 'F2/4'])
+
+library.shutDown()
+
 ev3.screen.draw_text(50, 60, "Hello!")
 wait(1000)
