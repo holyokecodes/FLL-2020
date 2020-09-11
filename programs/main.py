@@ -8,7 +8,7 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
 #import the library
-from library import FuctionLibrary
+from library import FUNCTION_LIBRARY
 
 
 
@@ -30,7 +30,7 @@ sensor_b = ColorSensor(Port.S2)
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 
 #init the library
-library = FuctionLibrary(robot, ev3, left_motor, right_motor)
+library = FUNCTION_LIBRARY(robot, ev3, left_motor, right_motor)
 
 # Calibrate your drive base.
 # You can also just measure everything
@@ -63,4 +63,4 @@ ev3.screen.draw_text(50, 60, "Hello!")
 wait(1000)'''
 
 #use the library
-library.lineFollowForDistance(sensor_b=sensor_b)
+library.line_follow_for_time(sensor_b=sensor_b)
