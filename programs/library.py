@@ -63,7 +63,8 @@ class FUNCTION_LIBRARY:
             if self.stopWatch.time() > time: #
                 break #STOP THIEF
 
-        #self.hub.speaker.say("I line followed for" + str(floor(time/1000)) + "seconds")
+        self.driveBase.stop()
+        self.hub.speaker.say("I line followed for" + str(floor(time/1000)) + "seconds")
 
     def line_follow_for_distance(self, PROPORTIONAL_GAIN=1, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_b=0, distance=1000, debug=False):
         BLACK = 9 #what is black
@@ -80,7 +81,8 @@ class FUNCTION_LIBRARY:
             #stop condition 
             if self.driveBase.distance() > distance: #
                 break #STOP THIEF
-        #self.hub.speaker.say("I have reached " + str(floor(distance/25.4)) + "inches")
+        self.driveBase.stop()
+        self.hub.speaker.say("I have reached " + str(floor(distance/25.4)) + "inches")
 
         def mm_to_inch(mm):
             return mm/25.4
