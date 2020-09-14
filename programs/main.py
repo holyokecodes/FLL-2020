@@ -52,15 +52,18 @@ library = FUNCTION_LIBRARY(robot, ev3, left_motor, right_motor)
 # robot.drive(speed=150, turn_rate=60)
 # wait(1000)
 # robot.stop()
-'''ev3.speaker.beep()
-ev3.speaker.play_file(SoundFile.HELLO)
+#ev3.speaker.beep()
+#ev3.speaker.play_file(SoundFile.HELLO)
 #ev3.speaker.say("Logic error, error error error error error error error error error error errorrr Non halting program detected, shutting down")
 #ev3.speaker.play_notes(['C4/4', 'F3/4', 'F2/4'])
 
-library.shutDown()
+#library.shutDown()
 
-ev3.screen.draw_text(50, 60, "Hello!")
-wait(1000)'''
+#ev3.screen.draw_text(50, 60, "Hello!")
+#wait(1000)
 
 #use the library
-library.line_follow_for_time(sensor_b=sensor_b)
+
+library.line_follow_for_time(p=2, sensor_b=sensor_b)
+
+# library.shutdown()
