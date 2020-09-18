@@ -24,10 +24,10 @@ class FUNCTION_LIBRARY:
 
     def shutdown(self):
         self.hub.speaker.say("Logic error, error error error error error error error error error error errorrr Non halting program detected, shutting down")
-        self.hub.speaker.say("Shutting down...")
+        #self.hub.speaker.say("Shutting down...")
         self.hub.speaker.play_notes(['C4/4', 'F3/4', 'F2/4'])
 
-    def line_follow_until_black(self, PROPORTIONAL_GAIN=1.2, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_b=0, debug=False):
+    def line_follow_until_black(self, PROPORTIONAL_GAIN=1.2, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor=0, debug=False):
         #BLACK = 9 #what is black
         #WHITE = 85 #what is white, also what is life (42)
         threshold = (BLACK + WHITE) / 2 #the center of black+white
@@ -35,9 +35,9 @@ class FUNCTION_LIBRARY:
         while True: #forever, do
 
             if (debug):
-                print(sensor_b.reflection()) #how bright the stuff the color sensor sees is
+                print(sensor.reflection()) #how bright the stuff the color sensor sees is
             #Calculate the turn rate from the devation and set the drive base speed and turn rate.
-            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * sensor_b.reflection() - threshold)
+            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * sensor.reflection() - threshold)
             
             #stop condition 
             #if sensor_a.reflection() > 80: #
