@@ -5,17 +5,20 @@ from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
 from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
-from pybricks.media.ev3dev import SoundFile, ImageFile
+from pybricks.media.ev3dev import Image, SoundFile, ImageFile
 
 #import the library
 from library import FUNCTION_LIBRARY
 
-
-
+#import the combos
+from comboOne import *
+from comboTwo import *
+from comboThree import *
+from comboFour import *
 
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
-# Click "Open user guide" on the EV3 extension tab for more information.
-
+# For more information:
+# https://pybricks.github.io/ev3-micropython/
 
 # Create your objects here.
 ev3 = EV3Brick()
@@ -29,41 +32,18 @@ sensor_b = ColorSensor(Port.S2)
 # Initialize the drive base.
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 
-#init the library
+# init the library
 library = FUNCTION_LIBRARY(robot, ev3, left_motor, right_motor)
 
-# Calibrate your drive base.
-# You can also just measure everything
+ev3.screen.load_image( Image('../images/FLLButtons.png') )
 
-# This should drive 100 mm straight forward.
-# If it doesn't go far enough, decrease your wheel_diameter.
-# If it goes too far, increase your wheel diameter.
-# When it is perfect, comment this code out.
-#robot.straight(100)
+while True:
+    if Button.LEFT in ev3.buttons.pressed():
+        comboOne(robot, ev3)
+    if Button.RIGHT in ev3.buttons.pressed():
+        comboTwo(robot, ev3)
+    if Button.UP in ev3.buttons.pressed():
+        comboFour(robot, ev3)
+    if Button.DOWN in ev3.buttons.pressed():
+        comboThree(robot, ev3)
 
-# This should turn 360 degrees.
-# If it turns less than 360 degrees, increase the axle_track
-# If it turns more than 360 degrees, decrease the axle_track
-# When it is perfect, comment this code out.
-#robot.turn(360)
-
-# Go forward and backwards for one meter.
-#robot.straight(1000)
-# robot.drive(speed=150, turn_rate=60)
-# wait(1000)
-# robot.stop()
-#ev3.speaker.beep()
-#ev3.speaker.play_file(SoundFile.HELLO)
-#ev3.speaker.say("Logic error, error error error error error error error error error error errorrr Non halting program detected, shutting down")
-#ev3.speaker.play_notes(['C4/4', 'F3/4', 'F2/4'])
-
-#library.shutDown()
-
-#ev3.screen.draw_text(50, 60, "Hello!")
-#wait(1000)
-
-#use the library
-
-library.line_follow_for_time(p=2, sensor_b=sensor_b)
-
-# library.shutdown()
