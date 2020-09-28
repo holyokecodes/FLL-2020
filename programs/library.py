@@ -9,7 +9,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 from math import *
 
 class FUNCTION_LIBRARY:
-    def __init__(self, robot, ev3, left_motor, right_motor):
+    def __init__(self, robot, ev3, left_motor, right_motor, color_sensor):
         #self, DriveBase, Hub
         self.driveBase = robot
         self.hub = ev3
@@ -21,6 +21,7 @@ class FUNCTION_LIBRARY:
         self.left_motor.reset_angle(0)
 
         self.stopWatch = StopWatch()
+        self.color_sensor = color_sensor
 
     def shutdown(self):
         self.hub.speaker.say("Logic error, error error error error error error error error error error errorrr Non halting program detected, shutting down")
@@ -45,7 +46,9 @@ class FUNCTION_LIBRARY:
             #    return #STOP THIEF
     
 
-    def line_follow_for_time(self, p=1, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_b=0, time=10000, debug=False):
+    def line_follow_for_time(self, p=1, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_b=-1, time=10000, debug=False):
+        if (sensor_b == -1):
+            sensor_b = self.color_sensor
         self.stopWatch.reset()
         self.stopWatch.resume()
 
@@ -87,13 +90,13 @@ class FUNCTION_LIBRARY:
         self.driveBase.stop()
         self.hub.speaker.say("I have reached " + str(floor(distance/25.4)) + "inches")
 
-        def mm_to_inch(mm):
-            return mm/25.4
-        def inch_to_mm(inch):
-            return inch*25.4
-        def ms_to_second(ms):
-            return ms/1000
-        def second_to_ms(s):
-            return s*1000
+    def mm_to_inch(self, mm):
+        return mm/25.4
+    def inch_to_mm(self, inch):
+        return inch*25.4
+    def ms_to_second(self, ms):
+        return ms/1000
+    def second_to_ms(self, s):
+        return s*1000
 
         

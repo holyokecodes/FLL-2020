@@ -33,17 +33,18 @@ sensor_b = ColorSensor(Port.S2)
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
 
 # init the library
-library = FUNCTION_LIBRARY(robot, ev3, left_motor, right_motor)
+library = FUNCTION_LIBRARY(robot, ev3, left_motor, right_motor, sensor_b)
 
 ev3.screen.load_image( Image('../images/FLLButtons.png') )
 
 while True:
     if Button.LEFT in ev3.buttons.pressed():
-        comboOne(robot, ev3)
+        comboOne(robot, ev3, library)
     if Button.RIGHT in ev3.buttons.pressed():
-        comboTwo(robot, ev3)
+        comboTwo(robot, ev3, library)
     if Button.UP in ev3.buttons.pressed():
-        comboFour(robot, ev3)
+        comboFour(robot, ev3, library)
     if Button.DOWN in ev3.buttons.pressed():
-        comboThree(robot, ev3)
+        comboThree(robot, ev3, library)
 
+#hello there

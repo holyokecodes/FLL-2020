@@ -1,6 +1,6 @@
 # M02 - Step Counter, M06 - Pull-Up Bar, M07 - Robot Dance, M10 - Cell Phone
 
-def comboFour(robot, ev3):
+def comboFour(robot, ev3, library):
     robot.straight(600)
     ev3.speaker.beep()
     robot.stop()
