@@ -29,8 +29,8 @@ class FUNCTION_LIBRARY:
         self.hub.speaker.play_notes(['C4/4', 'F3/4', 'F2/4'])
 
     def line_follow_until_black(self, PROPORTIONAL_GAIN=1.2, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor=-1, debug=False):
-        if (sensor_b == -1):
-            sensor_b = self.color_sensor
+        if (sensor == -1):
+            sensor = self.color_sensor
         #BLACK = 9 #what is black
         #WHITE = 85 #what is white, also what is life (42)
         threshold = (BLACK + WHITE) / 2 #the center of black+white
