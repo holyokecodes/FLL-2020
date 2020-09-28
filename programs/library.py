@@ -28,7 +28,9 @@ class FUNCTION_LIBRARY:
         #self.hub.speaker.say("Shutting down...")
         self.hub.speaker.play_notes(['C4/4', 'F3/4', 'F2/4'])
 
-    def line_follow_until_black(self, PROPORTIONAL_GAIN=1.2, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor=0, debug=False):
+    def line_follow_until_black(self, PROPORTIONAL_GAIN=1.2, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor=-1, debug=False):
+        if (sensor_b == -1):
+            sensor_b = self.color_sensor
         #BLACK = 9 #what is black
         #WHITE = 85 #what is white, also what is life (42)
         threshold = (BLACK + WHITE) / 2 #the center of black+white
@@ -38,7 +40,7 @@ class FUNCTION_LIBRARY:
             if (debug):
                 print(sensor.reflection()) #how bright the stuff the color sensor sees is
             #Calculate the turn rate from the devation and set the drive base speed and turn rate.
-            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * sensor.reflection() - threshold)
+            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor.reflection() - threshold))
             
             #stop condition 
             #if sensor_a.reflection() > 80: #
@@ -62,7 +64,7 @@ class FUNCTION_LIBRARY:
             if (debug):
                 print(sensor_b.reflection()) #how bright the stuff the color sensor sees is
             #Calculate the turn rate from the devation and set the drive base speed and turn rate.
-            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * sensor_b.reflection() - threshold)
+            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor_b.reflection() - threshold))
             
             #stop condition 
             if self.stopWatch.time() > time: #
@@ -71,9 +73,11 @@ class FUNCTION_LIBRARY:
         self.driveBase.stop()
         self.hub.speaker.say("I line followed for" + str(floor(time/1000)) + "seconds")
 
-    def line_follow_for_distance(self, p=1, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_b=0, distance=1000, debug=False):
+    def line_follow_for_distance(self, p=1, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_b=-1, distance=1000, debug=False):
         #BLACK = 9 #what is black
         #WHITE = 85 #what is white, also what is life (42)
+        if (sensor_b == -1):
+            sensor_b = self.color_sensor
         PROPORTIONAL_GAIN = p
         threshold = (BLACK + WHITE) / 2 #the center of black+white
 
@@ -82,7 +86,7 @@ class FUNCTION_LIBRARY:
             if (debug):
                 print(sensor_b.reflection()) #how bright the stuff the color sensor sees is
             #Calculate the turn rate from the devation and set the drive base speed and turn rate.
-            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * sensor_b.reflection() - threshold)
+            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor_b.reflection() - threshold))
             
             #stop condition 
             if self.driveBase.distance() > distance: #
