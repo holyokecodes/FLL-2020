@@ -21,36 +21,39 @@ class FUNCTION_LIBRARY:
         self.left_motor.reset_angle(0)
 
         self.stopWatch = StopWatch()
-        self.color_sensor = color_sensor
+        self.color_sensor = color_sensor 
 
     def shutdown(self):
         self.hub.speaker.say("Logic error, error error error error error error error error error error errorrr Non halting program detected, shutting down")
         #self.hub.speaker.say("Shutting down...")
         self.hub.speaker.play_notes(['C4/4', 'F3/4', 'F2/4'])
 
-    def line_follow_until_black(self, PROPORTIONAL_GAIN=1.2, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor=-1, debug=False):
-        if (sensor == -1):
-            sensor = self.color_sensor
+    def line_follow_until_black(self, p=1.2, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_lf=-1, sensor_stop=-1,  debug=False):
+        if (sensor_lf == -1):
+            sensor_lf = self.color_sensor
+        if (sensor_stop == -1):
+            sensor_stop = self.color_sensor # I NEED TO CREATE NEW CONSTANt
+
+        PROPORTIONAL_GAIN = p
         #BLACK = 9 #what is black
         #WHITE = 85 #what is white, also what is life (42)
         threshold = (BLACK + WHITE) / 2 #the center of black+white
 
         while True: #forever, do
-
             if (debug):
-                print(sensor.reflection()) #how bright the stuff the color sensor sees is
+                print(sensor_lf.reflection()) #how bright the stuff the color sensor sees is
             #Calculate the turn rate from the devation and set the drive base speed and turn rate.
-            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor.reflection() - threshold))
+            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor_lf.reflection() - threshold))
             
             #stop condition 
-            #if sensor_a.reflection() > 80: #
-            #    self.shutDown()
-            #    return #STOP THIEF
-    
+            if sensor_stop.reflection() <= BLACK: #
+                self.driveBase.stop()
+                break #thrillitup
 
-    def line_follow_for_time(self, p=1, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_b=-1, time=10000, debug=False):
-        if (sensor_b == -1):
-            sensor_b = self.color_sensor
+
+    def line_follow_for_time(self, p=1, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_lf=-1, time=10000, debug=False):
+        if (sensor_lf == -1):
+            sensor_lf = self.color_sensor
         self.stopWatch.reset()
         self.stopWatch.resume()
 
@@ -62,9 +65,9 @@ class FUNCTION_LIBRARY:
         while True: #forever, do
 
             if (debug):
-                print(sensor_b.reflection()) #how bright the stuff the color sensor sees is
+                print(sensor_lf.reflection()) #how bright the stuff the color sensor sees is
             #Calculate the turn rate from the devation and set the drive base speed and turn rate.
-            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor_b.reflection() - threshold))
+            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor_lf.reflection() - threshold))
             
             #stop condition 
             if self.stopWatch.time() > time: #
@@ -73,20 +76,20 @@ class FUNCTION_LIBRARY:
         self.driveBase.stop()
         self.hub.speaker.say("I line followed for" + str(floor(time/1000)) + "seconds")
 
-    def line_follow_for_distance(self, p=1, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_b=-1, distance=1000, debug=False):
+    def line_follow_for_distance(self, p=1, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_lf=-1, distance=1000, debug=False):
         #BLACK = 9 #what is black
         #WHITE = 85 #what is white, also what is life (42)
-        if (sensor_b == -1):
-            sensor_b = self.color_sensor
+        if (sensor_lf == -1):
+            sensor_lf = self.color_sensor
         PROPORTIONAL_GAIN = p
         threshold = (BLACK + WHITE) / 2 #the center of black+white
 
         while True: #forever, do
 
             if (debug):
-                print(sensor_b.reflection()) #how bright the stuff the color sensor sees is
+                print(sensor_lf.reflection()) #how bright the stuff the color sensor sees is
             #Calculate the turn rate from the devation and set the drive base speed and turn rate.
-            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor_b.reflection() - threshold))
+            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor_lf.reflection() - threshold))
             
             #stop condition 
             if self.driveBase.distance() > distance: #
