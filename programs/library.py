@@ -50,6 +50,28 @@ class FUNCTION_LIBRARY:
                 self.driveBase.stop()
                 break #thrillitup
 
+    def line_follow_until_white(self, p=1.2, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_lf=-1, sensor_stop=-1,  debug=False):
+        if (sensor_lf == -1):
+            sensor_lf = self.color_sensor
+        if (sensor_stop == -1):
+            sensor_stop = self.color_sensor # I NEED TO CREATE NEW CONSTANt
+
+        PROPORTIONAL_GAIN = p
+        #BLACK = 9 #what is black
+        #WHITE = 85 #what is white, also what is life (42)
+        threshold = (BLACK + WHITE) / 2 #the center of black+white
+
+        while True: #forever, do
+            if (debug):
+                print(sensor_lf.reflection()) #how bright the stuff the color sensor sees is
+            #Calculate the turn rate from the devation and set the drive base speed and turn rate.
+            self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor_lf.reflection() - threshold))
+            
+            #stop condition 
+            if sensor_stop.reflection() <= WHITE: #
+                self.driveBase.stop()
+                break #thrillitup
+
 
     def line_follow_for_time(self, p=1, DRIVE_SPEED=100, BLACK=9, WHITE= 85, sensor_lf=-1, time=10000, debug=False):
         if (sensor_lf == -1):
@@ -83,7 +105,7 @@ class FUNCTION_LIBRARY:
             sensor_lf = self.color_sensor
         PROPORTIONAL_GAIN = p
         threshold = (BLACK + WHITE) / 2 #the center of black+white
-
+        startingDistance = self.driveBase.distance()
         while True: #forever, do
 
             if (debug):
@@ -92,10 +114,10 @@ class FUNCTION_LIBRARY:
             self.driveBase.drive(DRIVE_SPEED, PROPORTIONAL_GAIN * (sensor_lf.reflection() - threshold))
             
             #stop condition 
-            if self.driveBase.distance() > distance: #
+            if self.driveBase.distance()-startingDistance > distance: #
                 break #STOP THIEF
         self.driveBase.stop()
-        self.hub.speaker.say("I have reached " + str(floor(distance/25.4)) + "inches")
+        ##self.hub.speaker.say("I have reached " + str(floor(distance/25.4)) + "inches") removed this, pauses robot too long
 
     def mm_to_inch(self, mm):
         return mm/25.4

@@ -28,6 +28,7 @@ left_motor = Motor(Port.B)
 right_motor = Motor(Port.C)
 
 sensor_b = ColorSensor(Port.S2)
+sensor_stop = ColorSensor(Port.S1)
 
 # Initialize the drive base.
 robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
@@ -39,7 +40,7 @@ ev3.screen.load_image( Image('../images/FLLButtons.png') )
 
 while True:
     if Button.LEFT in ev3.buttons.pressed():
-        comboOne(robot, ev3, library)
+        comboOne(robot, ev3, library, left_motor)
     if Button.RIGHT in ev3.buttons.pressed():
         comboTwo(robot, ev3, library)
     if Button.UP in ev3.buttons.pressed():
