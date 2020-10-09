@@ -4,12 +4,10 @@ from pybricks.ev3devices import (Motor, TouchSensor, ColorSensor,
 from pybricks.parameters import Port, Stop, Direction, Button, Color
 from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
-from pybricks.media.ev3dev import SoundFile, ImageFile
+from pybricks.media.ev3dev import Image, SoundFile, ImageFile
 
-
-# M11 - Treadmill, M12 - Row Machine, M13 - Weight Machine
-
-def comboOne(robot, ev3, library, left_motor):
+def comboOne(robot, ev3, library, left_motor, medium_motor):
+    medium_motor.reset_angle(0)
     #ev3.speaker.say("You pressed down, this button is not supported. DDDDDDDDDD")
     ## Use Library for line following to get to treadmill? Line follow to get back for sure
     robot.straight(library.inch_to_mm(8.5))
@@ -40,4 +38,8 @@ def comboOne(robot, ev3, library, left_motor):
     library.line_follow_for_distance(p=-1, distance=library.inch_to_mm(37))
     robot.settings(straight_speed=600)
     robot.straight(library.inch_to_mm(36))
+    
+    robot.straight(library.inch_to_mm(8.75))
+
+    medium_motor.run_target(1000, 1000)
     pass

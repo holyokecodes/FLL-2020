@@ -26,6 +26,7 @@ ev3 = EV3Brick()
 
 left_motor = Motor(Port.B)
 right_motor = Motor(Port.C)
+medium_motor = Motor(Port.D)
 
 sensor_b = ColorSensor(Port.S2)
 sensor_stop = ColorSensor(Port.S1)
@@ -40,7 +41,7 @@ ev3.screen.load_image( Image('../images/FLLButtons.png') )
 
 while True:
     if Button.LEFT in ev3.buttons.pressed():
-        comboOne(robot, ev3, library, left_motor)
+        comboOne(robot, ev3, library, left_motor, medium_motor)
     if Button.RIGHT in ev3.buttons.pressed():
         comboTwo(robot, ev3, library)
     if Button.UP in ev3.buttons.pressed():
@@ -48,4 +49,3 @@ while True:
     if Button.DOWN in ev3.buttons.pressed():
         comboThree(robot, ev3, library)
 
-#hello there
