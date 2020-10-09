@@ -26,7 +26,7 @@ ev3 = EV3Brick()
 
 left_motor = Motor(Port.B)
 right_motor = Motor(Port.C)
-medium_motor = Motor(Port.D)
+medium_motor = "Oh!"#Motor(Port.D)
 
 sensor_b = ColorSensor(Port.S2)
 sensor_stop = ColorSensor(Port.S1)
