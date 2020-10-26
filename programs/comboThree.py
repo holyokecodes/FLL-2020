@@ -7,7 +7,7 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 # M09 - Tires, M03 - Slide, M08 - Boccia, M04 - Bench
 
-def comboThree(robot, ev3, library):
+def comboThree(robot, ev3, library, medium_motor):
     
     # Tires
     # Drive over to the tires,

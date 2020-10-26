@@ -9,13 +9,14 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 from math import *
 
 class FUNCTION_LIBRARY:
-    def __init__(self, robot, ev3, left_motor, right_motor, color_sensor):
+    def __init__(self, robot, ev3, left_motor, right_motor, medium_motor, color_sensor):
         #self, DriveBase, Hub
         self.driveBase = robot
         self.hub = ev3
 
         self.left_motor = left_motor
         self.right_motor = right_motor
+        self.medium_motor = medium_motor
 
         self.left_motor.reset_angle(0)
         self.left_motor.reset_angle(0)
