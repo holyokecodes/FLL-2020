@@ -19,18 +19,18 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     left_motor.run_target(speed = 600, target_angle=840) #turn left motor to do the treamill
     robot.straight(library.inch_to_mm(12)) #get off the treadmill
     # Drive to rowing machine
-    robot.turn(-90)
+    robot.turn(-87)
     robot.straight(library.inch_to_mm(-11))
     robot.turn(-94)
     # arrive at rowing machine
-    robot.straight(library.inch_to_mm(3.5))
+    robot.straight(library.inch_to_mm(3.25))
     medium_motor.run_time(speed=-150, time=4000)
     robot.straight(-120)
     robot.turn(-10)
     medium_motor.run_time(speed=200, time=5000)
     robot.turn(-65)
-    robot.straight(library.inch_to_mm(16.25))
-    medium_motor.run_time(speed=-200, time=100000)
+    robot.straight(library.inch_to_mm(14.75))
+    medium_motor.run_time(speed=-200, time=6000)
     """
     robot.turn(-90)
     robot.straight(library.inch_to_mm(2))
