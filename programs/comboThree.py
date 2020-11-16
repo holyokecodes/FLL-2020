@@ -9,13 +9,21 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 def comboThree(robot, ev3, library, medium_motor):
     
-    # Tires
-    # Drive over to the tires,
-    robot.straight(152.4)
-    library.line_follow_for_distance_stop(distance=660, p=1)
-    robot.turn(45)
-    # Flip the light tire east, 
-    # Flip the heavy tire south,
+    
+    # Go to bench,
+    # Run it over,
+    # Go to position where bucket can obtain the top piece of the bench,
+    # and take it.
+    """
+    robot.turn(-65)
+    robot.straight(462.6)
+    robot.turn(-110)
+    robot.straight(250)
+    """
+    
+    robot.turn(-100)
+    robot.straight(400)
+    robot.turn(90)
     # Slide
     # Get over there from tire,
     # Knock down the first guy
@@ -23,15 +31,15 @@ def comboThree(robot, ev3, library, medium_motor):
     # Second guy goes down,
     # Use the attachment to put the guys on a tire
     # Boccia
-    # Get over there from tire,
+    # Get over there from slide,
     # Rotate boccia townards space where you can drop cubesw
     # Push the cube into the square, if we have time use bucket to add more
     # Bench
-    # Go to bench,
-    # Run it over,
-    # Go to position where bucket can obtain the top piece of the bench,
-    # and take it.
+    
+    
+    # Tires
+    # Drive over to the tires,
     # Go back to base
-
-
+    # Flip the light tire east, 
+    # Flip the heavy tire south,
     pass
