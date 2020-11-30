@@ -6,6 +6,8 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import Image, SoundFile, ImageFile
 
+# Treadmill, Rowing Machine, Weight Machine, Slide
+
 def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     print(buttons, sep=' ', end='\n')
     robot.straight(library.inch_to_mm(8.5))
@@ -19,19 +21,23 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     left_motor.run_target(speed = 600, target_angle=840) #turn left motor to do the treamill
     robot.straight(library.inch_to_mm(12)) #get off the treadmill
     # Drive to rowing machine
-    robot.turn(-87)
+    robot.turn(-90)
     robot.straight(library.inch_to_mm(-11))
-    robot.turn(-94)
+    robot.turn(-90)
     # arrive at rowing machine
+    """
     robot.straight(library.inch_to_mm(3.25))
     medium_motor.run_time(speed=-150, time=4000)
     robot.straight(-120)
     robot.turn(-10)
     medium_motor.run_time(speed=200, time=5000)
+    
+    # Go to weight machine
     robot.turn(-65)
     robot.straight(library.inch_to_mm(14.75))
+    # Lift weight
     medium_motor.run_time(speed=-200, time=6000)
-    """
+    
     robot.turn(-90)
     robot.straight(library.inch_to_mm(2))
     
@@ -39,7 +45,7 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     
     robot.turn(-90)
     
-    # arrive at weight machine
+    
     robot.turn(115)
     #go home
     
@@ -50,4 +56,14 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     robot.straight(library.inch_to_mm(36))
     
     robot.straight(library.inch_to_mm(8.75))
+
+        robot.stop()
+    slide
+    robot.settings(straight_speed=33)
+    medium_motor.run_time(speed=200, time=2000, wait=False)
+    robot.straight(library.inch_to_mm(3.5))
+    robot.stop()
+    robot.settings(straight_speed=100)
+    robot.straight(library.inch_to_mm(-1.6))
+    robot.straight(library.inch_to_mm(2.25))
     """

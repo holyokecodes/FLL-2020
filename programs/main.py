@@ -32,7 +32,7 @@ sensor_b = ColorSensor(Port.S2)
 sensor_stop = ColorSensor(Port.S1)
 
 # Initialize the drive base.
-robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=104)
+robot = DriveBase(left_motor, right_motor, wheel_diameter=55.5, axle_track=115)
 
 # init the library
 library = FUNCTION_LIBRARY(robot, ev3, left_motor, right_motor, medium_motor, sensor_b, sensor_stop)
