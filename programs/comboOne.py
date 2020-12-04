@@ -15,17 +15,21 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     sensor_stop = ColorSensor(Port.S1) #set color sensor vars
     library.line_follow_for_distance(p=1, distance=library.inch_to_mm(48.5), sensor_lf=sensor_stop, DRIVE_SPEED=150) #line follow to treadmill
     wait(250)
-    robot.turn(180) #turn 180 to back onto treadmill
+    robot.turn(180)
+    #turn 180 to back onto treadmill
+    """
     robot.straight(library.inch_to_mm(-12)) #back onto treamill
+    
     robot.stop()
     left_motor.run_target(speed = 600, target_angle=840) #turn left motor to do the treamill
     robot.straight(library.inch_to_mm(12)) #get off the treadmill
+    
     # Drive to rowing machine
     robot.turn(-90)
     robot.straight(library.inch_to_mm(-11))
     robot.turn(-90)
     # arrive at rowing machine
-    """
+    
     robot.straight(library.inch_to_mm(3.25))
     medium_motor.run_time(speed=-150, time=4000)
     robot.straight(-120)
@@ -57,8 +61,8 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     
     robot.straight(library.inch_to_mm(8.75))
 
-        robot.stop()
-    slide
+    robot.stop()
+    
     robot.settings(straight_speed=33)
     medium_motor.run_time(speed=200, time=2000, wait=False)
     robot.straight(library.inch_to_mm(3.5))
