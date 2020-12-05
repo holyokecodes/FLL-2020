@@ -17,14 +17,17 @@ def comboThree(robot, ev3, library, medium_motor):
     
     robot.turn(-65)
     robot.straight(462.6)
-    robot.turn(-110)
+    robot.turn(-130)
     robot.straight(250)
     robot.straight(-250)
     
     """robot.turn(-100)
     robot.straight(400)
     robot.turn(90)
-    """# Slide
+    """
+    
+    
+    # Slide
     # Get over there from tire,
     # Knock down the first guy
     # Get the second guy to the top,
