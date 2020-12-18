@@ -42,7 +42,7 @@ library = FUNCTION_LIBRARY(robot, ev3, left_motor, right_motor, medium_motor, se
 while True:
     buttons = ev3.buttons.pressed()
     if Button.LEFT in ev3.buttons.pressed():
-        comboOne(robot, ev3, library, left_motor, medium_motor, buttons)
+        comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b)
     if Button.RIGHT in ev3.buttons.pressed():
         comboTwo(robot, ev3, library, medium_motor, sensor_b, sensor_stop)
         

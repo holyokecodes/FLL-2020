@@ -6,37 +6,44 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import Image, SoundFile, ImageFile
 
+
+
+
 # Treadmill, Rowing Machine, Weight Machine, Slide
 
-def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
+def comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b):
     print(buttons, sep=' ', end='\n')
     robot.straight(library.inch_to_mm(8.5))
     robot.turn(-20)# get to line
     sensor_stop = ColorSensor(Port.S1) #set color sensor vars
     library.line_follow_for_distance(p=1, distance=library.inch_to_mm(48.5), sensor_lf=sensor_stop, DRIVE_SPEED=150) #line follow to treadmill
     wait(250)
-    robot.turn(180)
+    robot.turn(170)
     #turn 180 to back onto treadmill
-    """
+    
     robot.straight(library.inch_to_mm(-12)) #back onto treamill
     
     robot.stop()
+    
     left_motor.run_target(speed = 600, target_angle=840) #turn left motor to do the treamill
     robot.straight(library.inch_to_mm(12)) #get off the treadmill
     
     # Drive to rowing machine
-    robot.turn(-90)
-    robot.straight(library.inch_to_mm(-11))
-    robot.turn(-90)
+    robot.turn(90)
+    # use the wall to make sure we are straight
+    robot.straight(library.inch_to_mm(-4.5))
+    robot.straight(library.inch_to_mm(17.5))
+    # turn to face the rowing machine
+    robot.turn(97)
     # arrive at rowing machine
-    
-    robot.straight(library.inch_to_mm(3.25))
+    robot.straight(library.inch_to_mm(1))
+    # lower attachment to get the tire
     medium_motor.run_time(speed=-150, time=4000)
-    robot.straight(-120)
-    robot.turn(-10)
+    robot.straight(-130)
+    # raise the attachment
+    robot.turn(2)
     medium_motor.run_time(speed=200, time=5000)
-    
-    # Go to weight machine
+    """    # Go to weight machine
     robot.turn(-65)
     robot.straight(library.inch_to_mm(14.75))
     # Lift weight
