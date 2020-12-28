@@ -7,8 +7,6 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import Image, SoundFile, ImageFile
 
 
-
-
 # Treadmill, Rowing Machine, Weight Machine, Slide
 
 def comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b):
@@ -36,12 +34,14 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b):
     robot.straight(library.inch_to_mm(-4.5))
     robot.straight(library.inch_to_mm(17))
     # turn to face the rowing machine
-    robot.turn(90)
+    robot.turn(92)
     # arrive at rowing machine
     robot.straight(27)
     # lower attachment to get the tire
-    medium_motor.run_time(speed=-150, time=4000)
-    robot.straight(-122)
+    medium_motor.run_time(speed=-150, time=3000)
+    medium_motor.run_time(speed=-150, time=2000, wait = False)
+    robot.straight(-132)
+    robot.turn(-3)
     # raise the attachment
     medium_motor.run_time(speed=200, time=5000)
     """    # Go to weight machine
