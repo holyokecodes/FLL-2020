@@ -40,6 +40,7 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b):
     # lower attachment to get the tire
     medium_motor.run_time(speed=-150, time=3000)
     medium_motor.run_time(speed=-150, time=2000, wait = False)
+    # backup to drag the tire to the target zone
     robot.straight(-132)
     robot.turn(-3)
     # raise the attachment
