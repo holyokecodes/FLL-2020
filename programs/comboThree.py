@@ -7,6 +7,8 @@ from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 # M09 - Tires, M03 - Slide, M08 - Boccia, M04 - Bench
 
+# Pushed back as far as it can go, lined up with the right side of the box.
+
 def comboThree(robot, ev3, library, medium_motor):
     
     
@@ -15,11 +17,11 @@ def comboThree(robot, ev3, library, medium_motor):
     # Go to position where bucket can obtain the top piece of the bench,
     # and take it.
     
-    robot.turn(-65)
-    robot.straight(462.6)
-    robot.turn(-130)
-    robot.straight(250)
-    robot.straight(-250)
+    robot.turn(-110)
+    robot.straight(480)
+    #robot.turn(-130)
+    #robot.straight(250)
+    #robot.straight(-250)
     
     """robot.turn(-100)
     robot.straight(400)
