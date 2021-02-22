@@ -36,9 +36,9 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b):
     # turn to face the rowing machine
     robot.turn(92)
     # arrive at rowing machine
-    robot.straight(27)
+    robot.straight(29)
     # lower attachment to get the tire
-    medium_motor.run_time(speed=-150, time=3000)
+    medium_motor.run_time(speed=-150, time=3500)
     medium_motor.run_time(speed=-150, time=2000)
     # backup to drag the tire to the target zone
     robot.straight(-132)
