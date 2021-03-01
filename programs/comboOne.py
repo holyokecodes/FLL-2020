@@ -20,7 +20,7 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b):
     library.line_follow_for_distance(p=1, distance=library.inch_to_mm(48.5), sensor_lf=sensor_stop, DRIVE_SPEED=150) #line follow to treadmill
     wait(250)
     #turn to back onto treadmill
-    robot.turn(170)
+    robot.turn(172)
     #back onto treamill
     robot.straight(library.inch_to_mm(-12)) 
     robot.stop()
@@ -34,9 +34,9 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b):
     robot.straight(library.inch_to_mm(-4.5))
     robot.straight(library.inch_to_mm(10))
     # turn to face the rowing machine
-    robot.turn(62)
+    robot.turn(68)
     # arrive at rowing machine
-    robot.straight(32)
+    robot.straight(40)
     # lower attachment to get the tire
     medium_motor.run_time(speed=-150, time=3500)
     medium_motor.run_time(speed=-150, time=2000)
