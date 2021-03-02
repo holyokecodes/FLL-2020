@@ -17,10 +17,10 @@ def comboThree(robot, ev3, library, medium_motor):
     # Go to position where bucket can obtain the top piece of the bench,
     # and take it.
     
-    robot.straight(library.inch_to_mm(3)) 
-    robot.turn(10)
-    robot.straight(library.inch_to_mm(10))
-    robot.turn(-140)
+    # robot.straight(library.inch_to_mm(3)) 
+    # robot.turn(10)
+    # robot.straight(library.inch_to_mm(10))
+    # robot.turn(-140)
     #robot.straight(250)
     #robot.straight(-250)
     
@@ -48,9 +48,8 @@ def comboThree(robot, ev3, library, medium_motor):
     # Go back to base
     # Flip the light tire east, 
     # Flip the heavy tire south,
-    pass
-
-    """# Drive to Bocchia    
+    
+    # Drive to Bocchia    
     robot.turn(-27)
     robot.straight(library.inch_to_mm(9.5))
     library.line_follow_for_distance(distance=library.inch_to_mm(inch=15), p=1.9, sensor_lf=sensor_l)
@@ -61,4 +60,3 @@ def comboThree(robot, ev3, library, medium_motor):
     robot.stop()
     robot.settings(straight_speed = 900)
     robot.straight(library.inch_to_mm(-60))
-    pass"""
