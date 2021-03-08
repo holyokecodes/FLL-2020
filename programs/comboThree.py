@@ -9,7 +9,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 #Facing toward Bench, back of robot on the wall, left wheel's edge is on the edge of the box.
 
-def comboThree(robot, ev3, library, medium_motor):
+def comboThree(robot, ev3, library, medium_motor, sensor_l):
     
     
     # Go to bench,
@@ -50,13 +50,13 @@ def comboThree(robot, ev3, library, medium_motor):
     # Flip the heavy tire south,
     
     # Drive to Bocchia    
-    robot.turn(-27)
-    robot.straight(library.inch_to_mm(9.5))
+    # robot.turn(-27)
+    # robot.straight(library.inch_to_mm(9.5))
     library.line_follow_for_distance(distance=library.inch_to_mm(inch=15), p=1.9, sensor_lf=sensor_l)
-    robot.turn(50)
-    robot.straight(library.inch_to_mm(20))
-    #Boccia Code goes here.
-    robot.turn(10)
-    robot.stop()
-    robot.settings(straight_speed = 900)
-    robot.straight(library.inch_to_mm(-60))
+    # robot.turn(50)
+    # robot.straight(library.inch_to_mm(20))
+    # #Boccia Code goes here.
+    # robot.turn(10)
+    # robot.stop()
+    # robot.settings(straight_speed = 900)
+    # robot.straight(library.inch_to_mm(-60))
