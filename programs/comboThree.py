@@ -11,7 +11,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 def comboThree(robot, ev3, library, medium_motor, sensor_l):
     
-    
+    # settings(turn_acceleration)
     # Go to bench,
     # Run it over,
     # Go to position where bucket can obtain the top piece of the bench,
@@ -25,11 +25,16 @@ def comboThree(robot, ev3, library, medium_motor, sensor_l):
     #robot.straight(-250)
     
     """robot.turn(-100)
-    robot.straight(400)
+    robot.straight(300)
     robot.turn(90)
-    """
+    robot.straight(library.inch_to_mm(10))
+    robot.turn(-200)"""
     
-    
+    robot.turn(-55)
+    robot.straight(library.inch_to_mm(20))
+    robot.turn(-145)
+    robot.straight(library.inch_to_mm(8))
+    medium_motor.run_time(speed=-150, time=2000)
     # Slide
     # Get over there from tire,
     # Knock down the first guy
@@ -52,7 +57,7 @@ def comboThree(robot, ev3, library, medium_motor, sensor_l):
     # Drive to Bocchia    
     # robot.turn(-27)
     # robot.straight(library.inch_to_mm(9.5))
-    library.line_follow_for_distance(distance=library.inch_to_mm(inch=15), p=1.9, sensor_lf=sensor_l)
+    #library.line_follow_for_distance(distance=library.inch_to_mm(inch=15), p=1.9, sensor_lf=sensor_l)
     # robot.turn(50)
     # robot.straight(library.inch_to_mm(20))
     # #Boccia Code goes here.
