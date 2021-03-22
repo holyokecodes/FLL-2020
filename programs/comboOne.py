@@ -11,55 +11,58 @@ from pybricks.media.ev3dev import Image, SoundFile, ImageFile
 
 def comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b):
     print(buttons, sep=' ', end='\n')
-    robot.straight(library.inch_to_mm(8.5))
+    robot.straight(library.inch_to_mm(10.25))
     # get to line
     robot.turn(-20)
     #set color sensor vars
     sensor_stop = ColorSensor(Port.S1) 
     #line follow
-    library.line_follow_for_distance(p=1, distance=library.inch_to_mm(48.5), sensor_lf=sensor_stop, DRIVE_SPEED=150) #line follow to treadmill
+    library.line_follow_for_distance(p=1, distance=library.inch_to_mm(49.5), sensor_lf=sensor_stop, DRIVE_SPEED=150) #line follow to treadmill
     wait(250)
     #turn to back onto treadmill
-    robot.turn(172)
+    robot.turn(168)
     #back onto treamill
     robot.straight(library.inch_to_mm(-12)) 
     robot.stop()
     #turn left motor to do the treamill
     left_motor.run_target(speed = 600, target_angle=840) 
     #get off the treadmill
-    robot.straight(library.inch_to_mm(12)) 
+    robot.straight(library.inch_to_mm(13)) 
     # Drive to rowing machine
     robot.turn(90)
     # use the wall to make sure we are straight
-    robot.straight(library.inch_to_mm(-4.5))
-    robot.straight(library.inch_to_mm(10))
+    robot.straight(library.inch_to_mm(-7))
+    robot.straight(library.inch_to_mm(17.5))
     # turn to face the rowing machine
-    robot.turn(68)
+    robot.turn(114)
     # arrive at rowing machine
-    robot.straight(40)
+    robot.straight(library.inch_to_mm(1.6))
     # lower attachment to get the tire
-    medium_motor.run_time(speed=-150, time=3500)
-    medium_motor.run_time(speed=-150, time=2000)
+    medium_motor.run_time(speed=150, time=3500)
+    medium_motor.run_time(speed=150, time=2000)
     # backup to drag the tire to the target zone
     robot.straight(-132)
-    robot.turn(-6)
+    robot.turn(7)
+    robot.straight(25)
     # raise the attachment
-    medium_motor.run_time(speed=200, time=5000)
+    medium_motor.run_time(speed=-200, time=5000)
     # Go to weight machine
-    medium_motor.run_time(speed=400, time=500, wait=False)
-    robot.turn(-67)
-    robot.straight(420)
+    medium_motor.run_time(speed=-400, time=500, wait=False)
+    
+
     # Lift weight
-    medium_motor.run_time(speed=-200, time=7000)
-    medium_motor.run_time(speed=400, time=7000)
+
+    
+    robot.turn(-67)
+    robot.straight(317.5)
+    medium_motor.run_time(speed=-400, time=1500)
+    robot.turn(-50)
+    robot.straight(library.inch_to_mm(2.5))
+    
+    medium_motor.run_time(speed=800, time=7400)
+    robot.straight(library.inch_to_mm(-4))
+    medium_motor.run_time(speed=-800, time=7000)
     """
-    robot.turn(-90)
-    robot.straight(library.inch_to_mm(2))
-    
-    
-    
-    robot.turn(-90)
-    
     
     robot.turn(115)
     #go home
