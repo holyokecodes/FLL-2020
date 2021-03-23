@@ -8,14 +8,18 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 # M02 - Step Counter, M06 - Pull-Up Bar, M07 - Robot Dance, M10 - Cell Phone
 
 def comboFour(robot, ev3, library):
+
+    # head towards the step counter
     robot.turn(6)
     robot.straight(800)
     ev3.speaker.beep()
+    #push it
     robot.turn(-6)
     robot.stop()
     robot.settings(straight_speed=30)
     robot.straight(280)
     robot.stop()
+    #head towards dance
     robot.settings(straight_speed=200)
     robot.straight(-100)
     robot.turn(90)
@@ -23,6 +27,6 @@ def comboFour(robot, ev3, library):
     robot.stop()
     robot.settings(straight_speed=550)
     robot.straight(-630)
-    robot.turn(-45) 
-    robot.straight(-360)
+    robot.turn(-47) 
+    robot.straight(-400)
     robot.turn(-1800)
