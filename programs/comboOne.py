@@ -34,34 +34,39 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b):
     robot.straight(library.inch_to_mm(-7))
     robot.straight(library.inch_to_mm(17.5))
     # turn to face the rowing machine
-    robot.turn(114)
+
+    robot.turn(113) #if it breaks, set this to 114
+
     # arrive at rowing machine
     robot.straight(library.inch_to_mm(1.6))
     # lower attachment to get the tire
-    medium_motor.run_time(speed=150, time=3500)
-    medium_motor.run_time(speed=150, time=2000)
+    medium_motor.run_time(speed=1000, time=1000)
     # backup to drag the tire to the target zone
+    ev3.speaker.say("Backing Up")
     robot.straight(-132)
-    robot.turn(7)
-    #robot.straight(25)
+    robot.turn(10)
     # raise the attachment
-    medium_motor.run_time(speed=-200, time=5000)
+    ev3.speaker.say("Raising the arm!")
+    medium_motor.run_time(speed=-1000, time=2500)
+    ev3.speaker.say("now I go forward to not hit the tire")
+    robot.straight(library.inch_to_mm(5))
     # Go to weight machine
-    medium_motor.run_time(speed=-400, time=500, wait=False)
+    ev3.speaker.say("Going to weight machine!")
     
 
     # Lift weight
 
     
-    robot.turn(-67)
-    robot.straight(317.5)
-    medium_motor.run_time(speed=-400, time=1500)
-    robot.turn(-50)
-    robot.straight(library.inch_to_mm(2.5))
+    robot.turn(-67-40)
+    ev3.speaker.say("Going forward")
+    robot.straight(300)
+    # robot.turn(-50)
+    # robot.straight(library.inch_to_mm(2.5))
     
-    medium_motor.run_time(speed=800, time=5400)
+    medium_motor.run_time(speed=1000, time=3000)
     robot.straight(library.inch_to_mm(-8))
-    medium_motor.run_time(speed=-800, time=5000)
+    medium_motor.run_time(speed=-1000, time=3000)
+    ev3.speaker.say("I am strong now!")
     """
     
     robot.turn(115)
