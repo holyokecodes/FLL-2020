@@ -23,23 +23,24 @@ def comboThree(robot, ev3, library, medium_motor, sensor_l):
     # robot.turn(-140)
     #robot.straight(250)
     #robot.straight(-250)
-    
+    robot.settings(turn_rate=57)
     robot.turn(-45)
-    robot.straight(library.inch_to_mm(24))
+    robot.straight(library.inch_to_mm(26))
     robot.turn(-120)
     robot.straight(library.inch_to_mm(3)) #this forward hits the bench with the front of the attachment
     #robot.turn(-30)
     #robot.straight(library.inch_to_mm(12))
     robot.straight(library.inch_to_mm(-1.5))
     robot.drive(100, -40)
+    wait(1400)
+    robot.stop(Stop.BRAKE)
+    robot.drive(120, 40)
     wait(1300)
     robot.stop(Stop.BRAKE)
-    robot.drive(100, 40)
-    wait(1200)
-    robot.stop(Stop.BRAKE)
-    robot.straight(library.inch_to_mm(4))
-    robot.turn(10)
-
+    robot.straight(library.inch_to_mm(6))
+    robot.stop()
+    robot.turn(20)
+    medium_motor.run_time(speed=500, time=2000)
     # medium_motor.run_time(speed=-10000, time=400)
 
     # Slide
