@@ -42,40 +42,34 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons, sensor_b):
     # lower attachment to get the tire
     medium_motor.run_time(speed=1000, time=1000)
     # backup to drag the tire to the target zone
-    ev3.speaker.say("Backing Up")
     robot.straight(-132)
     robot.turn(10)
     # raise the attachment
-    ev3.speaker.say("Raising the arm!")
     medium_motor.run_time(speed=-1000, time=2500)
-    ev3.speaker.say("now I go forward to not hit the tire")
     robot.straight(library.inch_to_mm(5))
     # Go to weight machine
-    ev3.speaker.say("Going to weight machine!")
     
 
     # Lift weight
 
     
-    robot.turn(-67-40)
-    ev3.speaker.say("Going forward")
-    robot.straight(300)
-    # robot.turn(-50)
-    # robot.straight(library.inch_to_mm(2.5))
+    robot.turn(-65-25)
+    robot.straight(library.inch_to_mm(10))
+    robot.turn(-33)
+    robot.straight(library.inch_to_mm(6))
     
-    medium_motor.run_time(speed=1000, time=3000)
-    robot.straight(library.inch_to_mm(-8))
+    medium_motor.run_time(speed=1000, time=4000, wait=False)
+    robot.drive(0,5)
+    wait(4000)
+    robot.stop()
     medium_motor.run_time(speed=-1000, time=3000)
-    ev3.speaker.say("I am strong now!")
-    """
+    robot.straight(library.inch_to_mm(-8))
     
-    robot.turn(115)
-    #go home
-    
-    robot.straight(library.inch_to_mm(10.5))
-    robot.turn(90)
-    library.line_follow_for_distance(p=-1, distance=library.inch_to_mm(37))
-    robot.settings(straight_speed=600)
+    robot.drive(100,-50)
+    wait(1000)
+    robot.stop()
+    library.line_follow_for_distance(p=-1, distance=library.inch_to_mm(30))
+    """robot.settings(straight_speed=600)
     robot.straight(library.inch_to_mm(36))
     
     robot.straight(library.inch_to_mm(8.75))
