@@ -105,6 +105,8 @@ class FUNCTION_LIBRARY:
         #WHITE = 85 #what is white, also what is life (42)
         if (sensor_lf == -1):
             sensor_lf = self.color_sensor_2
+        elif (sensor_lf == -2):
+            sensor_lf = self.color_sensor_1
         PROPORTIONAL_GAIN = p
         threshold = (BLACK + WHITE) / 2 #the center of black+white
         startingDistance = self.driveBase.distance()
