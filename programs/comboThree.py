@@ -59,11 +59,11 @@ def comboThree(robot, ev3, library, medium_motor, sensor_l):
     
     #Drop the cubes
     #robot.straight(library.inch_to_mm(-2))
-    medium_motor.run_time(speed=-1000, time=750)
+    medium_motor.run_time(speed=-1000, time=650)
     
     #Go to home'
-    robot.turn(-15)
-    robot.straight(library.inch_to_mm(18))
+    robot.turn(-85)
+    robot.straight(library.inch_to_mm(20))
     
 
 '''
