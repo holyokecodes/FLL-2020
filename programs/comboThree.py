@@ -12,6 +12,7 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 def comboThree(robot, ev3, library, medium_motor, sensor_l):
     
     # Go to bench,
+    robot.stop(Stop.BRAKE)
     robot.settings(turn_rate=57)
     robot.turn(-45)
     robot.straight(library.inch_to_mm(26))
