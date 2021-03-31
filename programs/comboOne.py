@@ -43,7 +43,7 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     medium_motor.run_time(speed=1000, time=1200)
     # backup to drag the tire to the target zone
     robot.straight(-132)
-    robot.turn(10)
+    robot.turn(20)
     # raise the attachment
     medium_motor.run_time(speed=-1000, time=2500)
     robot.straight(library.inch_to_mm(5))
@@ -53,7 +53,7 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     # Lift weight
 
     
-    robot.turn(-65-25)
+    robot.turn(-65-35)
     robot.straight(library.inch_to_mm(10))
     robot.turn(-33) # it was -33
     robot.straight(library.inch_to_mm(6))
@@ -69,7 +69,10 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     wait(1000)
     robot.stop()
     library.line_follow_for_distance(p=1, distance=library.inch_to_mm(40), sensor_lf=-2)
-    robot.straight(library.inch_to_mm(42))
+    robot.straight(library.inch_to_mm(2.5))
+    medium_motor.run_time(-1000, 2000, wait=False)
+    robot.turn(60)
+    robot.straight(library.inch_to_mm(40))
 
     # robot.settings(straight_speed=600)
     # robot.straight(library.inch_to_mm(36))
