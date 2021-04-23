@@ -29,4 +29,4 @@ def comboFour(robot, ev3, library):
     robot.straight(-630)
     robot.turn(-47) 
     robot.straight(-400)
-    robot.turn(-1800)
+    robot.turn(-54000)
