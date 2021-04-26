@@ -17,7 +17,10 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     #set color sensor vars
     sensor_stop = ColorSensor(Port.S1) 
     #line follow
-    library.line_follow_for_distance(p=1, distance=library.inch_to_mm(49.5), sensor_lf=sensor_stop, DRIVE_SPEED=150) #line follow to treadmill
+    library.line_follow_for_distance(p=1, distance=library.inch_to_mm(20.5), sensor_lf=sensor_stop, DRIVE_SPEED=150) #line follow to treadmill
+    robot.turn(90)
+    robot.turn(-90)
+    library.line_follow_for_distance(p=1, distance=library.inch_to_mm(29), sensor_lf=sensor_stop, DRIVE_SPEED=150) #line follow to treadmill
     wait(250)
     #turn to back onto treadmill
     robot.turn(168)
