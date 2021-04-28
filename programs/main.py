@@ -46,7 +46,7 @@ while True:
     if Button.RIGHT in ev3.buttons.pressed():
         comboTwo(robot, ev3, library, medium_motor, sensor_b, sensor_stop)
     if Button.UP in ev3.buttons.pressed():
-        comboFour(robot, ev3, library)
+        comboFour(robot, ev3, library, medium_motor)
     if Button.DOWN in ev3.buttons.pressed():
         comboThree(robot, ev3, library, medium_motor, sensor_b)
 
