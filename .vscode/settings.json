@@ -4,5 +4,5 @@
 	"debug.openDebug": "neverOpen",
 	"python.linting.enabled": false,
 	"python.languageServer": "Microsoft",
-	"ev3devBrowser.download.exclude": "{**/*.io,**/*.jpg,**/*.pdf,**/*.gitignore,**/*.md,**/*.json,**/example.py}"
+	"ev3devBrowser.download.exclude": "{**/*.io,**/*.jpg,**/*.pdf,**/*.gitignore,**/*.md,**/*.json,**/example.py,**/*.png}"
 }

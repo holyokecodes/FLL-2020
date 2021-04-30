@@ -37,7 +37,7 @@ robot = DriveBase(left_motor, right_motor, wheel_diameter=57.15, axle_track=115)
 # init the library
 library = FUNCTION_LIBRARY(robot, ev3, left_motor, right_motor, medium_motor, sensor_b, sensor_stop)
 
-ev3.screen.load_image(Image('../images/FLLButtons.png'))
+ev3.screen.load_image(Image('../images/FLLButtons.PNG'))
 
 while True:
     buttons = ev3.buttons.pressed()
