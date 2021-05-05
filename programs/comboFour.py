@@ -10,9 +10,10 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 def comboFour(robot, ev3, library, medium_motor):
 
     # head towards the step counter
+    robot.stop()
     robot.settings(straight_speed=550)
     robot.turn(3)
-    robot.straight(820)
+    robot.straight(830)
     ev3.speaker.beep()
     #push it
     # robot.turn(-6)
@@ -23,14 +24,17 @@ def comboFour(robot, ev3, library, medium_motor):
     #head towards dance
     robot.settings(straight_speed=200)
     robot.straight(-100)
-    robot.turn(-90)
-    robot.straight(-100)
+    # robot.turn(-90)
+    robot.straight(-10) # Do A
+    robot.turn(-40)     # Three
+    robot.straight(40)  # Point
+    robot.turn(-40)     # Turn
     robot.stop()
     robot.settings(straight_speed=550)
-    robot.straight(40)
-    robot.turn(-25) 
-    robot.straight(50)
-    robot.turn(25)
-    medium_motor.run_time(100, 1000)
-    robot.turn(135)
-    robot.straight(-inch_to_mm(7))
+    robot.straight(library.inch_to_mm(22))
+    robot.turn(-45) 
+    robot.straight(library.inch_to_mm(10.2))
+    robot.turn(47)
+    medium_motor.run_time(-500, 1000)
+    # robot.turn(135)
+    # robot.straight(-inch_to_mm(7))
