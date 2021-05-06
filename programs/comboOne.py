@@ -18,24 +18,27 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     sensor_stop = ColorSensor(Port.S1) 
     #line follow
     library.line_follow_for_distance(p=1, distance=library.inch_to_mm(20.5), sensor_lf=sensor_stop, DRIVE_SPEED=150) #line follow to treadmill
-    robot.turn(-70)
-    robot.turn(70)
+    ev3.speaker.beep()
+    robot.turn(-70) # Dump the
+    robot.straight(library.inch_to_mm(2))
+    robot.straight(library.inch_to_mm(-2))
+    robot.turn(70) #  Inno Project
     library.line_follow_for_distance(p=1, distance=library.inch_to_mm(29), sensor_lf=sensor_stop, DRIVE_SPEED=150) #line follow to treadmill
     wait(250)
     #turn to back onto treadmill
-    robot.turn(168)
+    robot.turn(173)
     #back onto treamill
     robot.straight(library.inch_to_mm(-12)) 
     robot.stop()
     #turn left motor to do the treamill
     left_motor.run_target(speed = -600, target_angle=840) 
     #get off the treadmill
-    robot.straight(library.inch_to_mm(13)) 
+    robot.straight(library.inch_to_mm(14)) 
     # Drive to rowing machine
     robot.turn(90)
     # use the wall to make sure we are straight
-    robot.straight(library.inch_to_mm(-7))
-    robot.straight(library.inch_to_mm(17.5))
+    robot.straight(library.inch_to_mm(-10))
+    robot.straight(library.inch_to_mm(16.5))
     # turn to face the rowing machine
 
     robot.turn(110) #if it breaks, set this to 114
@@ -56,19 +59,17 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
   
     
     robot.turn(-95)
-    robot.straight(library.inch_to_mm(10))
-    robot.turn(-40) # it was -33
-    robot.straight(library.inch_to_mm(6))
+    robot.straight(library.inch_to_mm(13))
+    robot.turn(-20) # it was -40, and before that it was at -33
+    robot.straight(library.inch_to_mm(4))
     
     medium_motor.run_time(speed=1000, time=2750, wait=True)
     #robot.drive(0,5)
-    wait(3000)
     robot.stop()
     medium_motor.run_time(speed=-1000, time=1500)
     robot.straight(library.inch_to_mm(-8))
     
     robot.drive(70,-70)
-    wait(1000)
     robot.stop()
     library.line_follow_for_distance(p=1, distance=library.inch_to_mm(40), sensor_lf=-2)
     robot.straight(library.inch_to_mm(2.5))
