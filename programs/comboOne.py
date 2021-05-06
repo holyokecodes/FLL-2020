@@ -70,6 +70,8 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     robot.straight(library.inch_to_mm(-8))
     
     robot.drive(70,-70)
+    ev3.speaker.beep()
+    wait(1000)
     robot.stop()
     library.line_follow_for_distance(p=1, distance=library.inch_to_mm(40), sensor_lf=-2)
     robot.straight(library.inch_to_mm(2.5))
