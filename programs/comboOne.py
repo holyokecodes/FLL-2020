@@ -49,7 +49,7 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     medium_motor.run_time(speed=1000, time=2400)
     # backup to drag the tire to the target zone
     robot.straight(-132)
-    robot.turn(20)
+    robot.turn(10)
     # raise the attachment
     medium_motor.run_time(speed=-1000, time=2500)
     robot.straight(library.inch_to_mm(5))
@@ -58,7 +58,7 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
 
   
     
-    robot.turn(-95)
+    robot.turn(-90)
     robot.straight(library.inch_to_mm(13))
     robot.turn(-20) # it was -40, and before that it was at -33
     robot.straight(library.inch_to_mm(4))
@@ -71,15 +71,15 @@ def comboOne(robot, ev3, library, left_motor, medium_motor, buttons):
     
     robot.drive(70,-70)
     ev3.speaker.beep()
-    wait(1000)
+    wait(1200)
     robot.stop()
-    library.line_follow_for_distance(p=1, distance=library.inch_to_mm(40), sensor_lf=-2)
-    robot.straight(library.inch_to_mm(2.5))
-    medium_motor.run_time(-1000, 1000, wait=False)
-    robot.turn(51)
+    library.line_follow_for_distance(p=1, distance=library.inch_to_mm(6), sensor_lf=-2)
     robot.stop()
     robot.settings(straight_speed=800)
-    robot.straight(library.inch_to_mm(44))
+    robot.straight(library.inch_to_mm(47))
+    medium_motor.run_time(-1000, 1000, wait=False)
+    robot.turn(-45)
+    robot.straight(library.inch_to_mm(50))
 
     # robot.settings(straight_speed=600)
     # robot.straight(library.inch_to_mm(36))
